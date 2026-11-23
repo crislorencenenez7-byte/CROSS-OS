@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#101522">
+  <title>CROSS OS</title>
+  <link rel="stylesheet" href="css/desktop.css">
+</head>
+<body>
+  <main id="desktop">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-logo">X</div>
+        <span>CROSS <b>OS</b></span>
+      </div>
+      <div class="topbar-center" id="topbar-status">Personal Desktop Environment</div>
+      <div class="topbar-right">
+        <button class="fullscreen-button" onclick="CrossOS.fullscreen()" title="Full Screen Landscape">⛶ Full Screen</button>
+        <span id="network-status">● Online</span>
+        <span id="top-clock">--:--</span>
+      </div>
+    </header>
+
+    <section class="desktop-area" id="desktop-area">
+      <div class="wallpaper-glow glow-one"></div>
+      <div class="wallpaper-glow glow-two"></div>
+
+      <div class="desktop-icons">
+        <button class="desktop-icon" onclick="CrossOS.open('explorer')">
+          <span>📁</span><small>File Explorer</small>
+        </button>
+        <button class="desktop-icon" onclick="CrossOS.open('studio')">
+          <span>💻</span><small>Code Studio</small>
+        </button>
+        <button class="desktop-icon" onclick="CrossOS.open('notepad')">
+          <span>📝</span><small>Notepad</small>
+        </button>
+        <button class="desktop-icon" onclick="CrossOS.open('settings')">
+          <span>⚙️</span><small>Settings</small>
+        </button>
+        <button class="desktop-icon" onclick="CrossOS.open('appcenter')">
+          <span>▦</span><small>App Center</small>
+        </button>
+        <button class="desktop-icon" onclick="CrossOS.open('store')">
+          <span>🛍️</span><small>CROSS Store</small>
+        </button>
+        <button class="desktop-icon" onclick="CrossOS.open('system')">
+          <span>🖥️</span><small>This Device</small>
+        </button>
+      </div>
+
+      <div id="window-area"></div>
+
+      <section id="start-menu" class="floating-panel start-menu hidden">
+        <div class="start-search">
+          <span>⌕</span>
+          <input id="app-search" placeholder="Search apps and settings..." oninput="CrossOS.search(this.value)">
+        </div>
+        <div class="panel-heading">
+          <b>All applications</b>
+          <span>CROSS OS</span>
+        </div>
+        <div id="start-apps" class="start-app-grid"></div>
+        <div class="start-footer">
+          <span>◆ CROSS OS User</span>
+          <button onclick="CrossOS.notify('Power options','This is a desktop simulator.')">⏻</button>
+        </div>
+      </section>
+
+      <section id="quick-panel" class="floating-panel quick-panel hidden">
+        <div class="panel-heading">
+          <b>Quick Settings</b><span>CONTROL CENTER</span>
+        </div>
+        <div class="quick-grid">
+          <button class="quick-tile active" onclick="CrossOS.toggleTile(this)">◉<small>Wi-Fi</small></button>
+          <button class="quick-tile active" onclick="CrossOS.toggleTile(this)">◐<small>Bluetooth</small></button>
+          <button class="quick-tile" onclick="CrossOS.toggleTile(this)">☾<small>Focus</small></button>
+          <button class="quick-tile" onclick="CrossOS.toggleTile(this)">✈<small>Airplane</small></button>
+        </div>
+        <label class="setting-label">Brightness</label>
+        <input type="range" min="30" max="100" value="100" oninput="document.documentElement.style.setProperty('--brightness',this.value/100)">
+        <label class="setting-label">Volume</label>
+        <input type="range" min="0" max="100" value="65">
+        <div class="quick-bottom">
+          <span>◈ CROSS OS</span>
+          <button onclick="CrossOS.open('settings')">All settings ↗</button>
+        </div>
+      </section>
+
+      <section id="notification-panel" class="floating-panel notification-panel hidden">
+        <div class="panel-heading">
+          <b>Notifications</b>
+          <button onclick="CrossOS.clearNotifications()">Clear all</button>
+        </div>
+        <div id="notification-list">
+          <div class="empty-state">You're all caught up.</div>
+        </div>
+      </section>
+    </section>
+
+    <footer class="taskbar">
+      <div class="taskbar-left">
+        <button class="taskbar-brand" onclick="CrossOS.toggleStart()" title="Start">X</button>
+      </div>
+      <div class="taskbar-apps" id="task-apps"></div>
+      <div class="taskbar-right">
+        <button class="tray-button" onclick="CrossOS.toggleNotifications()" title="Notifications">♧</button>
+        <button class="tray-button" onclick="CrossOS.toggleQuick()" title="Quick settings">◈</button>
+        <button class="tray-clock" onclick="CrossOS.toggleQuick()">
+          <span id="task-clock">--:--</span>
+          <small id="task-date">---</small>
+        </button>
+      </div>
+    </footer>
+  </main>
+
+  <script src="js/core/runtime.js"></script>
+  <script src="js/cross-os.js"></script>
+  <script src="js/system/ultimate.js"></script>
+</body>
+</html>

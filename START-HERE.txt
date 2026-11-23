@@ -1,0 +1,17 @@
+CROSS OS SIMULATOR 2.1.0
+
+TERMUX START:
+  cd ~/CROSS-OS-ULTIMATE
+  python backend/server.py
+
+OPEN IN ANDROID BROWSER:
+  http://127.0.0.1:8000
+
+CREATE + PUBLISH:
+  Code Studio > Publish to Store > Publish to CROSS Store
+
+SHARE AN APP:
+  CROSS Publisher > Export app package
+  CROSS Store > Import package
+
+The CROSS Store installs simulator apps only. It does not install APKs or change Android.
